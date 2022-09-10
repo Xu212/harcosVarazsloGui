@@ -1,6 +1,6 @@
 package model;
 public class Karakter {
-    int eletero;
+    private int eletero;
 
     public Karakter(int elertero) {
         this.eletero = elertero;
@@ -18,4 +18,7 @@ public class Karakter {
         this.eletero = eletero;
     }
     
+    public void mozgas(){
+        
+    }
 }
