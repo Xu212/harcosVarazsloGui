@@ -3,6 +3,7 @@ package model;
 import java.util.Random;
 
 public class Karakter {
+    Random rnd = new Random();
 
     private int eletero;
     private int pozicio;
@@ -19,14 +20,14 @@ public class Karakter {
     }
 
     public void mozgas() {
-        Random rnd = new Random();
         int ujpoz = rnd.nextInt(3);
         setPozicio(ujpoz);
     }
     
-    public void harc(){
+    public void sebzes(){
         int eletero = getEletero();
-        
+        eletero = eletero - (rnd.nextInt(6)+1);
+        setEletero(eletero);
     }
     
     public int getEletero() {
