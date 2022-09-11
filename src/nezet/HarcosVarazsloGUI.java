@@ -19,24 +19,24 @@ public class HarcosVarazsloGUI extends javax.swing.JFrame {
     private Karakter varazslo = new Karakter(1, "Varázsló");
     private Karakter harcos = new Karakter(3, "Harcos");
     private JButton[] palya;
-    private Icon varazsloIcon = new ImageIcon("kepek/blackmage.png");
+    /*private Icon varazsloIcon = new ImageIcon("kepek/blackmage.png");
     private Icon harcosIcon = new ImageIcon("kepek/warrior.png");
-    private Icon harcIcon = new ImageIcon("kepek/harc.png");
+    private Icon harcIcon = new ImageIcon("kepek/harc.png");*/
 
     /**
      * Creates new form HarcosVarazsloGUI
      */
-    public HarcosVarazsloGUI() {
+    public HarcosVarazsloGUI() throws InterruptedException {
         initComponents();
         palyaSzerzes();
-        Boolean valakiHalottE= false;
-        while (!valakiHalottE) {
+        Boolean valakiHalottE= true;
+        while (valakiHalottE) {
             varazslo.mozgas();
             harcos.mozgas();
-            //VEleteroJelz.setText(Integer.toString(varazslo.getEletero()));
-            //HEleteroJelz.setText(Integer.toString(harcos.getEletero()));
-            VEleteroJelz.setText(Integer.toString(varazslo.getPozicio()));
-            HEleteroJelz.setText(Integer.toString(harcos.getPozicio()));
+            VEleteroJelz.setText(Integer.toString(varazslo.getEletero()));
+            HEleteroJelz.setText(Integer.toString(harcos.getEletero()));
+            //VEleteroJelz.setText(Integer.toString(varazslo.getPozicio()));
+            //HEleteroJelz.setText(Integer.toString(harcos.getPozicio()));
             if (varazslo.getPozicio() == harcos.getPozicio()) {
                 harc();
                 //palya[varazslo.getPozicio()].setIcon(harcIcon);
@@ -48,9 +48,11 @@ public class HarcosVarazsloGUI extends javax.swing.JFrame {
                 //palya[varazslo.getPozicio()].setIcon(varazsloIcon);
                 palya[harcos.getPozicio()].setText("H");
                 palya[varazslo.getPozicio()].setText("V");
-
+                
             }
-            valakiHalottE = (harcos.getEletero()>=0 || varazslo.getEletero()>=0);
+            valakiHalottE = (harcos.getEletero()>0 && varazslo.getEletero()>0);
+            
+            Thread.sleep(5000);
         }
 
     }
